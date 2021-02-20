@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title|title }}</title>
+
+</head>
+<body>
+<h1 >{{ h1|title }}</h1>
+<h2>{{ user_name }}</h2>
+<h3 style="color: #d41306">Ваши продукты</h3>
+{% for products in product %}
+    <p>{{ products.name }} -->> {{ products.price }}</p>
+{% endfor %}
+{% if promo_product %}
+    <h3 style="color: #d41306">Action</h3>
+    {% for promo_products in promo_product %}
+        <p style="color: #1e88e5">{{ promo_products.name }} -->> {{ promo_products.price }}</p>
+    {% endfor %}
+{% else %}
+    <h1 style="color: blue">"Акций нет"</h1>
+{% endif %}
+</body>
+</html>
